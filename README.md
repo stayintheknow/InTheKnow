@@ -8,7 +8,7 @@
 
 ## Overview
 ### Description
-A personalized application that takes news to the next level
+A personalized application that takes news articles to the next level
 
 ### App Evaluation
 - **Category:** News
