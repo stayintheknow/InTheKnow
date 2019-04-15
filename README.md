@@ -57,7 +57,7 @@ A personalized application that takes news articles to the next level
    * News Feed: If they are simply logging into their accounts
 
 ## Wireframes
-<img src="wireframeV1.jpg">
+<img src="wireframeV2.jpg">
 
 ### [BONUS] Digital Wireframes & Mockups
 
