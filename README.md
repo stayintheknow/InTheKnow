@@ -11,13 +11,12 @@
 A personalized application that takes news to the next level
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
-- **Category:**
-- **Mobile:**
-- **Story:** 
+- **Category:** News / Social
+- **Mobile:** Mobile first experience
+- **Story:** Allows user to gain knowledge about what is going on in the world on a daily basis
 - **Market:** Young Adults/College Students
-- **Habit:**
-- **Scope:**
+- **Habit:** Users can search, read, like, and comment on articles throughout the day many times. Features like "Profiles" encourage users to like articles that intigue them so that they can reference them at a later time. Users can explore endless articles in any catefory whenever they want. Very habbit forming!
+- **Scope:** Reading, liking and commenting on articles for their own records. Might extend to being able to others profiles.
 
 ## Product Spec
 
@@ -58,7 +57,6 @@ A personalized application that takes news to the next level
    * News Feed: If they are simply logging into their accounts
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="wireframeV1.jpg">
 
 ### [BONUS] Digital Wireframes & Mockups
