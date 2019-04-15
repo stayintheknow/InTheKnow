@@ -16,7 +16,7 @@ A personalized application that takes news to the next level
 - **Story:** Allows user to gain knowledge about what is going on in the world on a daily basis
 - **Market:** Young Adults/College Students
 - **Habit:** Users can search, read, like, and comment on articles throughout the day many times. Features like "Profiles" encourage users to like articles that intigue them so that they can reference them at a later time. Users can explore endless articles in any catefory whenever they want. Very habbit forming!
-- **Scope:** Reading, liking and commenting on articles for their own records. Might extend to being able to others profiles.
+- **Scope:** Reading, liking and commenting on articles for their own records. Might extend to being able to view other profiles.
 
 ## Product Spec
 
