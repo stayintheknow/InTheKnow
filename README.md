@@ -11,7 +11,7 @@
 A personalized application that takes news to the next level
 
 ### App Evaluation
-- **Category:** News / Social
+- **Category:** News
 - **Mobile:** Mobile first experience
 - **Story:** Allows user to gain knowledge about what is going on in the world on a daily basis
 - **Market:** Young Adults/College Students
