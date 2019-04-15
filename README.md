@@ -59,7 +59,7 @@ A personalized application that takes news to the next level
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="wireframev1.jpg" width=600>
+<img src="wireframeV1.jpg">
 
 ### [BONUS] Digital Wireframes & Mockups
 
