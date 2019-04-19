@@ -68,6 +68,15 @@ A personalized application that takes news articles to the next level
 ### Models
 [Add table of models]
 ### Networking
-- [Add list of network requests by screen ]
+- News Feed Screen
+  - (Read/GET) query all articles to be fetched from News API
+  - (Create/POST) create a new like/comment regarding a particular article displayed on the News Feed
+  - (Delete) delete existing comment
+- User Profile Screen
+  - (Read/GET) query logged in user object
+  - (Update/PUT) update user profile image
+- User Preferences Screen
+  - (Update/PUT) update user preferences
+  - (Read/GET) query all articles to be fetched based on user selection
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
