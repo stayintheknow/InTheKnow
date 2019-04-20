@@ -8,13 +8,13 @@
 
 ## Overview
 ### Description
-A personalized application that takes news articles to the next level
+InTheKnow is an android app that takes news articles to the next level by providing a personalized experience that encourages more users to get involved in the news. 
 
 ### App Evaluation
 - **Category:** News
 - **Mobile:** Mobile first experience
 - **Story:** Allows user to gain knowledge about what is going on in the world on a daily basis
-- **Market:** Young,Middle, and Older Adults
+- **Market:** Young, Middle, and Older Adults
 - **Habit:** Users can search, read, like, and comment on articles throughout the day many times. Features like "Profiles" encourage users to like articles that intigue them so that they can reference them at a later time. Users can explore endless articles in any category whenever they want. Very habit forming!
 - **Scope:** Reading, liking and commenting on articles for their own records. Might extend to being able to view other profiles.
 
