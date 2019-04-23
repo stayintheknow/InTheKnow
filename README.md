@@ -80,7 +80,7 @@ InTheKnow is an android app that takes news articles to the next level by provid
   - (Read/GET) query all articles to be fetched based on user selection
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
--APIs
-  -CNN API http://developer.cnn.com/
-  -ESPN API http://www.espn.com/apis/devcenter/
-  -NY Times API https://developer.nytimes.com/
+- APIs
+  - CNN API http://developer.cnn.com/
+  - ESPN API http://www.espn.com/apis/devcenter/
+  - NY Times API https://developer.nytimes.com/
