@@ -64,9 +64,21 @@ InTheKnow is an android app that takes news articles to the next level by provid
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+
+| Property       | Type         | Description  |
+| ------------- |:-------------:| -----:|
+| objectId     | String | 	unique id for the user post (default field)|
+| author     | 	Pointer to User     |   image author|
+| image	     | 	File     |    	image that user posts |
+| caption	     | 	String | image caption by author|
+| commentsCount    | Number      |   	number of comments that has been posted to an image|
+| likesCount	| Number   |  number of likes for the post|
+| createdAt   | DateTime  | 	date when post is created (default field)|
+| updatedAt		| 	DateTime    |  date when post is last updated (default field) |
+
+		
+
 ### Networking
 - News Feed Screen
   - (Read/GET) query all articles to be fetched from News API
@@ -82,5 +94,13 @@ InTheKnow is an android app that takes news articles to the next level by provid
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 - APIs
   - CNN API http://developer.cnn.com/
+
+
+
   - ESPN API http://www.espn.com/apis/devcenter/
+ 
+
+
+
   - NY Times API https://developer.nytimes.com/
+
