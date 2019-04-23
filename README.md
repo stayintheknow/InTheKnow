@@ -68,14 +68,20 @@ InTheKnow is an android app that takes news articles to the next level by provid
 
 | Property       | Type         | Description  |
 | ------------- |:-------------:| -----:|
-| objectId     | String | 	unique id for the user post (default field)|
-| author     | 	Pointer to User     |   image author|
+|id	|String	|The NewsGraph ID uniquely identifying this piece of content.|
+|author     | 	Pointer to User     |   image author|
+|type	|String	|The content type as defined by the NewsGraph Index.|
+|dataSource	|String	The common name of the data source that this piece of content came from.|
 | image	     | 	File     |    	image that user posts |
 | caption	     | 	String | image caption by author|
+|firstPublishDate|	String	|The date/time that this piece of content was first published.|
+|lastPublishDate|	String	|The date/time that this piece of content was most recently published.|
+|url	|String	|The public canonical URL where this piece of content resides.|
+|language	|String	|The ISO 639-1 language code that this doc appears to be written in.|
 | commentsCount    | Number      |   	number of comments that has been posted to an image|
 | likesCount	| Number   |  number of likes for the post|
-| createdAt   | DateTime  | 	date when post is created (default field)|
-| updatedAt		| 	DateTime    |  date when post is last updated (default field) |
+
+
 
 		
 
@@ -94,13 +100,20 @@ InTheKnow is an android app that takes news articles to the next level by provid
 - [OPTIONAL: List endpoints APIs
 
 - CNN API http://developer.cnn.com/
-
-
-
-- ESPN API http://www.espn.com/apis/devcenter/
- 
-
-
+  
+	| Property       | Type         | Description  |
+	| ------------- |:-------------:| -----:|
+	| GET    | /id| The unique ID given to each doc |
+	| GET     | 	/url   |   	The public canonical URL where this piece of content resides.|
+	| GET	     | 	/description  |    Description:	The description of this piece of content, a synopsis. |
+	| GET	     | 	/dataSource  |    	The originating data store from which the content was extracted|
+	| GET    | 	/firstPublishDate | The date/time at which the content item was first published. |
+	| GET	     | 	/language  |    	The ISO 639-1 language code that this doc appears to be written in.
+	
 
 - NY Times API https://developer.nytimes.com/
+
+	| HTTP Verb       | Endpoint     | Description  |
+	| ------------- |:-------------:| -----:|
+	| GET   | /articlesearch.json  | 	Search for NYT articles by keywords, filters and facets.|
 
