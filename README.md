@@ -58,6 +58,7 @@ InTheKnow is an android app that takes news articles to the next level by provid
 
 ## Wireframes
 <img src="wireframeV2.jpg">
+UPDATE: User profile will no longer have two different tabs for liked and comments (likes and comments shown together sorted by time)
 
 ### [BONUS] Digital Wireframes & Mockups
 
@@ -66,24 +67,51 @@ InTheKnow is an android app that takes news articles to the next level by provid
 ## Schema 
 ### Models
 
-| Property       | Type         | Description  |
-| ------------- |:-------------:| -----:|
-|id	|String	|The NewsGraph ID uniquely identifying this piece of content.|
-|author     | 	Pointer to User     |   image author|
-|type	|String	|The content type as defined by the NewsGraph Index.|
-|dataSource	|String	The common name of the data source that this piece of content came from.|
-| image	     | 	File     |    	image that user posts |
-| caption	     | 	String | image caption by author|
-|firstPublishDate|	String	|The date/time that this piece of content was first published.|
-|lastPublishDate|	String	|The date/time that this piece of content was most recently published.|
-|url	|String	|The public canonical URL where this piece of content resides.|
-|language	|String	|The ISO 639-1 language code that this doc appears to be written in.|
-| commentsCount    | Number      |   	number of comments that has been posted to an image|
-| likesCount	| Number   |  number of likes for the post|
+#### ARTICLES
+##### Indexed by cateogry, Indexed by likesCount: so that choosing popular articled for newsfeed is faster
+| Property       | Type          | Description  							 	|
+|:-------------: |:-------------:| :-------------:							 	|
+|id	         |String	 |The NewsGraph ID uniquely identifying this piece of content.		 	|
+|title		 |String	 |Name of Article retreived from API					 	|
+|author name	 |String         |Name of author of news article retreived from API			 	|
+|author          |File           |Image of the author retreived from API				 	|
+|category        |String	 |The content type as defined by the NewsGraph Index.			 	|
+|dataSource	 |String	 |The common name of the data source that this piece of content came from.	|
+|image	         |File     	 |Article Feature Image 							|
+|publishDate	 |String	 |The date/time that this piece of content was first published.			|
+|url	         |String	 |The public canonical URL where this piece of content resides.			|
+|language	 |String	 |The ISO 639-1 language code that this doc appears to be written in.		|
+|commentsCount   |Number      	 |number of comments that has been posted to an image				|
+|likesCount	 |Number   	 |number of likes for the post							|
 
+#### USERS
+##### Indexed by username
+| Property       | Type          | Description  							 	|
+|:-------------: |:-------------:| :-------------:							 	|
+|id		 |String	 |User id									|
+|username	 |String	 |Username chosen by user (must be unique)					|
+|password	 |String	 |User password (hashed)							|
+|profileImage	 |File	   	 |Profile image uploaded by user 	 					|
+|bio		 |String	 |Introduction to user interests						|
 
+#### Comments
+##### Indexed by user, Indexed by article, id is autoincremented (i.e. 1,2,3,...) no need to index by time
+| Property       | Type          	 	| Description  						 	|
+|:-------------: |:-------------:	 	| :-------------:						|
+|id		 |String	        	|Comment id						  	|
+|user		 |Pointer to user object	|User that posted comment					|
+|article	 |Pointer to article object	|Article that was commented on 					|
+|comment	 |String	 		|Comment that was posted					|
+|time		 |DateTime			|Date and time comment was posted				|
 
-		
+#### Likes
+##### Indexed by user, Indexed by article, id is autoincremented
+| Property       | Type          	 	| Description  						 	|
+|:-------------: |:-------------:	 	| :-------------:						|
+|id		 |String	        	|Comment id						  	|
+|user		 |Pointer to user object	|User that liked article					|
+|article	 |Pointer to article object	|Article that was liked 					|
+|time		 |DateTime			|Date and time article was like					|
 
 ### Networking
 - News Feed Screen
@@ -92,10 +120,11 @@ InTheKnow is an android app that takes news articles to the next level by provid
   - (Delete) delete existing comment
 - User Profile Screen
   - (Read/GET) query logged in user object
+  - (Read/Get) query top 10 articles most recently liked and commented on
   - (Update/PUT) update user profile image
 - User Preferences Screen
-  - (Update/PUT) update user preferences
-  - (Read/GET) query all articles to be fetched based on user selection
+  - (Read/GET) query all categories available for users to select
+  - (Update/PUT) update user categories selected
 
 
 - CNN API http://developer.cnn.com/
