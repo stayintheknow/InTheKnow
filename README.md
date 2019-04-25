@@ -95,7 +95,7 @@ InTheKnow is an android app that takes news articles to the next level by provid
 |profileImage	 |File	   	 |Profile image uploaded by user 	 					|
 |bio		 |String	 |Introduction to user interests						|
 
-#### Comments
+#### COMMENTS
 ##### Indexed by user, Indexed by article, id is autoincremented (i.e. 1,2,3,...) no need to index by time
 | Property       | Type          	 	| Description  						 	|
 |:-------------: |:-------------:	 	| :-------------:						|
@@ -105,7 +105,7 @@ InTheKnow is an android app that takes news articles to the next level by provid
 |comment	 |String	 		|Comment that was posted					|
 |time		 |DateTime			|Date and time comment was posted				|
 
-#### Likes
+#### LIKES
 ##### Indexed by user, Indexed by article, id is autoincremented
 | Property       | Type          	 	| Description  						 	|
 |:-------------: |:-------------:	 	| :-------------:						|
