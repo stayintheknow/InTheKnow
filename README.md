@@ -68,7 +68,7 @@ UPDATE: User profile will no longer have two different tabs for liked and commen
 ### Models
 
 #### ARTICLES
-##### Indexed by cateogry, Indexed by likesCount: so that choosing popular articled for newsfeed is faster
+##### Indexed by cateogry, Indexed by likeCount: so that choosing popular articled for newsfeed is faster
 | Property       | Type          | Description  							 	|
 |:-------------: |:-------------:| :-------------:							 	|
 |id	         |String	 |The NewsGraph ID uniquely identifying this piece of content.		 	|
@@ -81,8 +81,8 @@ UPDATE: User profile will no longer have two different tabs for liked and commen
 |publishDate	 |String	 |The date/time that this piece of content was first published.			|
 |url	         |String	 |The public canonical URL where this piece of content resides.			|
 |language	 |String	 |The ISO 639-1 language code that this doc appears to be written in.		|
-|commentsCount   |Number      	 |number of comments that has been posted to an image				|
-|likesCount	 |Number   	 |number of likes for the post							|
+|commentCount    |Number      	 |number of comments that has been posted to an image				|
+|likeCount	 |Number   	 |number of likes for the post							|
 
 #### USERS
 ##### Indexed by username
