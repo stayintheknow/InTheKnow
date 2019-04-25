@@ -59,7 +59,7 @@ InTheKnow is an android app that takes news articles to the next level by provid
 ## Wireframes
 <img src="wireframeV2.jpg">
 
-##### UPDATE: User profile will no longer have two different tabs for liked and comments (likes and comments shown together sorted by time)
+##### UPDATE: User profile will no longer have two different tabs for likes and comments (likes and comments shown together sorted by time)
 
 ### [BONUS] Digital Wireframes & Mockups
 
