@@ -96,8 +96,7 @@ InTheKnow is an android app that takes news articles to the next level by provid
 - User Preferences Screen
   - (Update/PUT) update user preferences
   - (Read/GET) query all articles to be fetched based on user selection
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints APIs
+
 
 - CNN API http://developer.cnn.com/
   
