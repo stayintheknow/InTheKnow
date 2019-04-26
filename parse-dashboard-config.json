@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://stay-intheknow.herokuapp.com/parse",
+      "appId": "stay-intheknow",
+      "masterKey": "KeepingEveryoneInTheKnowAsAGroup",
+      "appName": "stay-intheknow",
+      "supportedPushLocales": ["en", "ru", "fr"]
+    }
+  ]
+}
