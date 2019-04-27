@@ -5,6 +5,7 @@
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
+2. [Walkthrough One](#Walkthrough-One)
 
 ## Overview
 ### Description
@@ -40,7 +41,7 @@ InTheKnow is an android app that takes news articles to the next level by provid
 * Update Interests Screen
    *  Users will have the ability to update their interests so that relevant news articles will be provided on their 'news feed'.
 * News Feed
-   * This screen will serve as the user's 'timeline' where they will be able to conveniently see all relevant news articles.
+   * This screen will serve as the user's 'timeline' where they will be able to conveniently see all relevant news articles.. 
 
 ### 3. Navigation
 
@@ -146,3 +147,5 @@ InTheKnow is an android app that takes news articles to the next level by provid
 	| ------------- |:-------------:| -----:|
 	| GET   | /articlesearch.json  | 	Search for NYT articles by keywords, filters and facets.|
 
+## Walkthrough One
+<img src="walkthrough1.gif"/>
