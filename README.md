@@ -146,6 +146,19 @@ InTheKnow is an android app that takes news articles to the next level by provid
 	| HTTP Verb       | Endpoint     | Description  |
 	| ------------- |:-------------:| -----:|
 	| GET   | /articlesearch.json  | 	Search for NYT articles by keywords, filters and facets.|
+	
+
+
+The following **required** functionality is completed:
+
+- [ ] User can sign up to create a new account using Parse authentication.
+- [X] User can log in to his or her account.
+- [ ] User can log out of his or her account.
+- [ ] User can view his or her news feed.
+- [ ] User can set and change preferences.
+- [ ] User can view his or her profile.
+- [ ] The current signed in user is persisted across app restarts.
+- [ ] User can like and comment on articles.
 
 ## Walkthrough One
 <img src="walkthrough1.gif"/>
