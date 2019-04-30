@@ -15,11 +15,13 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
+    private static final int REQUEST_REGISTRATION = 0;
 
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
     private Button btnRegister;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +37,20 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 login(username, password);
+            }
+        });
+
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate user to the Registration Screen if they are creating an account for the first time
+                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+                startActivityForResult(intent, REQUEST_REGISTRATION);
             }
         });
     }
@@ -57,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void goNewsFeed() {
         Log.d(TAG, "Login successful");

@@ -5,98 +5,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#982a2d2a"
-    tools:context="stayintheknow.intheknow.LoginActivity">
+    tools:context=".RegistrationActivity">
 
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="400dp"
         android:layout_height="120dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="43dp"
         app:srcCompat="@mipmap/logo" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etfullName"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_below="@+id/ivLogo"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/ivLogo"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginRight="66dp"
         android:background="#c72c2e2c"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Full Name"
         android:inputType="textPersonName"
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etnewUserName"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_alignLeft="@+id/etUsername"
-        android:layout_alignStart="@+id/etUsername"
-        android:layout_below="@+id/etUsername"
+        android:layout_below="@+id/etfullName"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="39dp"
         android:background="#c72c2e2c"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
+        android:hint="Enter a Username"
+        android:inputType="textPersonName"
         android:textColor="@android:color/background_light"
         android:textColorHint="@android:color/background_light"
         android:textSize="24sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignBottom="@+id/etPassword"
-        android:layout_toLeftOf="@+id/etPassword"
-        android:layout_toStartOf="@+id/etPassword"
-        android:background="#c72c2e2c"
-        app:srcCompat="@android:drawable/ic_lock_idle_lock" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_above="@+id/etPassword"
-        android:layout_toLeftOf="@+id/etUsername"
-        android:layout_toStartOf="@+id/etUsername"
-        android:background="#c72c2e2c"
-        app:srcCompat="@android:drawable/sym_action_email" />
-
-    <ProgressBar
-        android:id="@+id/pbLoading"
-        android:visibility="invisible"
+    <EditText
+        android:id="@+id/etnewPassword"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp"
+        android:layout_below="@id/etnewUserName"
+       android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:background="#c72c2e2c"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="24sp"/>
 
-    <Button
-        android:id="@+id/btnLogin"
+    <EditText
+        android:id="@+id/etconfirmPassword"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPassword"
+        android:layout_height="40dp"
+        android:layout_below="@id/etnewPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="39dp"
-        android:background="@android:color/holo_blue_light"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Login" />
+        android:background="#c72c2e2c"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="24sp"/>
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnLogin"
-        android:layout_alignStart="@+id/btnLogin"
-        android:layout_below="@+id/btnLogin"
-        android:layout_marginTop="14dp"
+        android:layout_below="@+id/etconfirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:background="@android:color/holo_green_light"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Register" />
+        android:text="Create Account" />
+
+
 </RelativeLayout>
