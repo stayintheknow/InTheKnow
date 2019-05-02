@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_newsfeed"
+            android:icon="@drawable/ic_newsfeed"
+            android:title="Newsfeed" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_ninja"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" />
+    </group>
+
+    <item android:title="News Categories">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_cat_world"
+                    android:icon="@drawable/ic_world"
+                    android:title="World" />
+                <item
+                    android:id="@+id/nav_cat_us"
+                    android:icon="@drawable/ic_us_map"
+                    android:title="U.S." />
+                <item
+                    android:id="@+id/nav_cat_ny"
+                    android:icon="@drawable/ic_ny"
+                    android:title="New York" />
+                <item
+                    android:id="@+id/nav_cat_tech"
+                    android:icon="@drawable/ic_tech"
+                    android:title="Tech" />
+                <item
+                    android:id="@+id/nav_cat_health"
+                    android:icon="@drawable/ic_health"
+                    android:title="Health" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Action">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+</menu>

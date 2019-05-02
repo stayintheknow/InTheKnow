@@ -2,6 +2,7 @@
 <resources>
     <!--<color name="colorPrimary">#3F51B5</color>-->
     <color name="colorPrimary">#ad2c2e2c</color>
-    <color name="colorPrimaryDark">#c72c2e2c</color>
+    <color name="colorPrimaryDark">#350140</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="navHeader">#762B86</color>
 </resources>

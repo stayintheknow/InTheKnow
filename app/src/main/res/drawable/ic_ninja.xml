@@ -1,0 +1,13 @@
+<vector android:height="24dp" android:viewportHeight="1771.6534"
+    android:viewportWidth="1771.6534" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillAlpha="1" android:fillColor="#1a1a1a" android:pathData="M710.55,1746.08C671.29,1739.09 603.48,1722.43 559.86,1709.06 479.18,1684.34 309.54,1607.07 270.91,1577.45 249.95,1561.37 249.85,1560.38 264.21,1505.68 314.63,1313.63 454.92,1145.82 640.39,1055.72 752.67,1001.17 833.05,982.9 961.72,982.68c246.66,-0.42 463.71,115.22 602.68,321.09 37.64,55.77 87.84,170.69 88.38,202.35 0.23,13.17 -18.27,30.9 -61.25,58.68 -139.49,90.18 -303.01,154.38 -463.12,181.84 -99.9,17.13 -320.18,16.83 -417.87,-0.56z"/>
+    <path android:fillAlpha="1" android:fillColor="#1a1a1a" android:pathData="M211.72,859.84L1072.42,1587.71A59.65,60.14 85.45,0 1,1079.11 1671.8L1079.11,1671.8A59.65,60.14 85.45,0 1,994.33 1678.54L133.63,950.68A59.65,60.14 85.45,0 1,126.94 866.58L126.94,866.58A59.65,60.14 85.45,0 1,211.72 859.84z"/>
+    <path android:fillAlpha="1" android:fillColor="#1a1a1a"
+        android:fillType="evenOdd"
+        android:pathData="M953.49,15.37A546.4,527.88 0,0 0,407.09 543.25,546.4 527.88,0 0,0 953.49,1071.12 546.4,527.88 0,0 0,1499.89 543.25,546.4 527.88,0 0,0 953.49,15.37ZM690.79,353.98 L1195.65,353.98c82.17,0 148.32,66.15 148.32,148.32l0,99.39c0,82.17 -66.15,148.32 -148.32,148.32l-504.86,0c-82.17,0 -148.32,-66.15 -148.32,-148.32l0,-99.39c0,-82.17 66.15,-148.32 148.32,-148.32z"
+        android:strokeAlpha="1" android:strokeColor="#00000000"
+        android:strokeLineCap="butt" android:strokeLineJoin="miter" android:strokeWidth="1"/>
+    <path android:fillAlpha="1" android:fillColor="#1a1a1a" android:pathData="M719.38,557.44a61.29,75.44 0,1 0,122.58 0a61.29,75.44 0,1 0,-122.58 0z"/>
+    <path android:fillAlpha="1" android:fillColor="#1a1a1a" android:pathData="M719.38,557.44a61.29,75.44 0,1 0,122.58 0a61.29,75.44 0,1 0,-122.58 0z"/>
+    <path android:fillAlpha="1" android:fillColor="#1a1a1a" android:pathData="M1021.12,557.44a61.29,75.44 0,1 0,122.58 0a61.29,75.44 0,1 0,-122.58 0z"/>
+</vector>

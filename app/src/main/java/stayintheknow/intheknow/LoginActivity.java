@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
+        if(isUerLoggedIn()) goToNewsFeed();
+
         // Set on click listeners
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,11 +50,21 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "Register button has been selected. Navigating to registration activity");
                 // Navigate user to the Registration Screen if they are creating an account for the first time
                 Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
                 startActivityForResult(intent, REQUEST_REGISTRATION);
             }
         });
+    }
+
+    private boolean isUerLoggedIn() {
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if(currentUser != null){
+            Log.d(TAG, "User is still logged in");
+            return true;
+        }
+        return false;
     }
 
     private void login(String username, String password) {
@@ -66,13 +78,13 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 // TODO: navigate to new activity if user has signed in properly
-                goNewsFeed();
+                goToNewsFeed();
             }
         });
     }
 
 
-    private void goNewsFeed() {
+    private void goToNewsFeed() {
         Log.d(TAG, "Login successful");
         Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_LONG).show();
         Intent i = new Intent(this,NewsFeedActivity.class);
