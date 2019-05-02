@@ -151,14 +151,18 @@ InTheKnow is an android app that takes news articles to the next level by provid
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication.
+- [X] User can sign up to create a new account using Parse authentication.
 - [X] User can log in to his or her account.
-- [ ] User can log out of his or her account.
-- [ ] User can view his or her news feed.
+- [X] User can log out of his or her account.
+- [X] User can view a news feed
+- [X] The current signed in user is persisted across app restarts.
+- [ ] User can view his or her personalized news feed.
 - [ ] User can set and change preferences.
 - [ ] User can view his or her profile.
-- [ ] The current signed in user is persisted across app restarts.
 - [ ] User can like and comment on articles.
 
 ## Walkthrough One
 <img src="walkthrough1.gif"/>
+
+## Walkthrough Two
+<img src="walkthrough2.gif"/>
