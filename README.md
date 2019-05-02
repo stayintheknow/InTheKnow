@@ -156,6 +156,7 @@ The following **required** functionality is completed:
 - [X] User can log out of his or her account.
 - [X] User can view a news feed
 - [X] The current signed in user is persisted across app restarts.
+- [X] Users can navigate through app screens through a navigation bar
 - [ ] User can view his or her personalized news feed.
 - [ ] User can set and change preferences.
 - [ ] User can view his or her profile.
