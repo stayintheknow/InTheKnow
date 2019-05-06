@@ -4,6 +4,8 @@ import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
+import java.util.Date;
+
 @ParseClassName("Article")
 public class Article extends ParseObject {
 
@@ -15,6 +17,9 @@ public class Article extends ParseObject {
     public static final String KEY_IMAGE = "featureImage";
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_DATA_SOURCE = "dataSource";
+    public static final String KEY_CREATED_AT = "createdAt";
+
+    public Date getTimeCreatedAt() { return getCreatedAt(); }
 
     public String getDataSource() {
         return getString(KEY_DATA_SOURCE);

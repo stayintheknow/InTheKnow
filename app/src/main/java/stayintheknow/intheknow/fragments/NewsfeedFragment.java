@@ -55,6 +55,7 @@ public class NewsfeedFragment extends Fragment {
     private void queryArticles() {
         ParseQuery<Article> articleQuery = new ParseQuery<Article>(Article.class);
         articleQuery.include(Article.KEY_AUTHOR);
+        articleQuery.include(Article.KEY_CREATED_AT);
         articleQuery.findInBackground(new FindCallback<Article>() {
             @Override
             public void done(List<Article> articles, ParseException e) {
@@ -68,6 +69,7 @@ public class NewsfeedFragment extends Fragment {
                 for(int i = 0; i < articles.size(); i++) {
                     Article article = articles.get(i);
                     Log.d(TAG, "Article: " + article.getTitle());
+                    Log.d(TAG, "Time Created" + article.getTimeCreatedAt().toString());
                     if(article.getAuthor() == null )
                         Log.e(TAG, "Null author object");
                     else Log.d(TAG, "Author: " + article.getAuthor().getName() );

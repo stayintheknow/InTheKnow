@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHolder>{
@@ -50,6 +52,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         private TextView tvTitle;
         private TextView tvDescription;
         private TextView tvAuthor;
+        private TextView tvTimeStamp;
         private ImageView ivImage;
 
         public ViewHolder(View itemView) {
@@ -58,12 +61,18 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvAuthor = itemView.findViewById(R.id.tvAuthor);
             ivImage = itemView.findViewById(R.id.ivImage);
+            tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
         }
 
         public void bind(Article article) {
             tvTitle.setText(article.getTitle());
             tvDescription.setText(article.getDescription());
             tvAuthor.setText(article.getAuthor().getName());
+            Date created = article.getTimeCreatedAt();
+            String pattern = "MMMM dd, yyyy hh:mm a";
+            SimpleDateFormat format = new SimpleDateFormat(pattern);
+            String dateCreated = format.format(created);
+            tvTimeStamp.setText(dateCreated);
             ParseFile image = article.getImage();
             if(image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
