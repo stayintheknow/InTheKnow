@@ -157,7 +157,8 @@ The following **required** functionality is completed:
 - [X] User can view a news feed
 - [X] The current signed in user is persisted across app restarts.
 - [X] Users can navigate through app screens through a navigation bar
-- [ ] Newsfeed list items are clickable and lead to corresponding articles
+- [X] Newsfeed list items are clickable and lead to corresponding articles
+- [X] User can double click on like button and view like button animation for selection
 - [ ] User can view his or her personalized news feed.
 - [ ] User can set and change preferences.
 - [ ] User can view his or her profile.
@@ -168,3 +169,6 @@ The following **required** functionality is completed:
 
 ## Walkthrough Two
 <img src="walkthrough2.gif"/>
+
+## Walkthrough Three
+<img src="walkthrough3.gif"/>
