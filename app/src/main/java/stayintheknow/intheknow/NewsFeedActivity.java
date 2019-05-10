@@ -21,6 +21,21 @@ import stayintheknow.intheknow.fragments.NewsfeedFragment;
 import stayintheknow.intheknow.fragments.ProfileFragment;
 import stayintheknow.intheknow.fragments.SettingsFragment;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
+
 public class NewsFeedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "NewsFeedActivity";
@@ -31,6 +46,7 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

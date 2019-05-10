@@ -10,41 +10,36 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.parse.ParseFile;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
-public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHolder>{
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private Context context;
-    private List<Article> articles;
+    private List<Articles> nytarticles;
 
-    public ArticlesAdapter(Context context, List<Article> articles) {
+    public Adapter(Context context, List<Articles> articles) {
         this.context = context;
-        this.articles = articles;
+        this.nytarticles = articles;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Creates row in our recycler view
+    public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_article, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // Binds data at given position into the view holder
-        Article article = articles.get(position);
+        Articles article = nytarticles.get(position);
         holder.bind(article);
+
     }
+
 
     @Override
     public int getItemCount() {
-        // Returns how many items are in our data set
-        return articles.size();
+        return nytarticles.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -52,7 +47,6 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         private TextView tvTitle;
         private TextView tvDescription;
         private TextView tvAuthor;
-        private TextView tvTimeStamp;
         private ImageView ivImage;
 
         public ViewHolder(View itemView) {
@@ -61,22 +55,14 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvAuthor = itemView.findViewById(R.id.tvAuthor);
             ivImage = itemView.findViewById(R.id.ivImage);
-            tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
         }
 
-        public void bind(Article article) {
+        public void bind(Articles article) {
             tvTitle.setText(article.getTitle());
             tvDescription.setText(article.getDescription());
-            tvAuthor.setText(article.getAuthor().getName());
-            Date created = article.getTimeCreatedAt();
-            String pattern = "MMMM dd, yyyy hh:mm a";
-            SimpleDateFormat format = new SimpleDateFormat(pattern);
-            String dateCreated = format.format(created);
-            tvTimeStamp.setText(dateCreated);
-            ParseFile image = article.getImage();
-            if(image != null) {
-                Glide.with(context).load(image.getUrl()).into(ivImage);
-            }
+            tvAuthor.setText(article.getAuhor());
+            Glide.with(context).load(article.getPicture_url()).into(ivImage);
+
         }
     }
 }
