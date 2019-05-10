@@ -5,12 +5,16 @@
     android:id="@+id/articleItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="3dp"
     android:background="@drawable/customborder"
     android:orientation="vertical"
     android:paddingLeft="10dp"
     android:paddingTop="10dp"
-    android:paddingRight="10dp">
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
 
     <ImageView
         android:id="@+id/ivImage"
@@ -19,14 +23,45 @@
         android:layout_gravity="center"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/tvTimeStamp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:id="@+id/action_buttons"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
         android:layout_marginTop="5dp"
-        android:text="TextView"
-        android:textSize="10sp"
-        tools:text="1min" />
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ivHeartRed"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_heart_red"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/ivHeart"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:visibility="visible"
+            app:srcCompat="@drawable/ic_heart"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageView
+            android:id="@+id/ivComment"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="40dp"
+            app:srcCompat="@drawable/ic_comment"
+            tools:ignore="VectorDrawableCompat" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XX,XXX likes"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -36,26 +71,26 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
 
     <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ninja"
+        android:textSize="12dp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Be life long learners. It pays off in the long run" />
 
     <TextView
-        android:id="@+id/tvAuthor"
+        android:id="@+id/tvTimeStamp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Claudia"
-        android:textSize="12dp"
-        android:textStyle="bold" />
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#002B2B2B"
-        android:paddingTop="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom_navigation" />
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        tools:text="1min" />
 
 </LinearLayout>

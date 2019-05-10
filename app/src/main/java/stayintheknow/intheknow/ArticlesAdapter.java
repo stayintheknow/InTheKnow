@@ -1,13 +1,20 @@
 package stayintheknow.intheknow;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
@@ -16,10 +23,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import stayintheknow.intheknow.utils.Heart;
+
 public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHolder>{
+    private static final String TAG = "ArticlesAdapter";
 
     private Context context;
     private List<Article> articles;
+
+    private GestureDetector gestureDetector;
+    private Heart heart;
+
 
     public ArticlesAdapter(Context context, List<Article> articles) {
         this.context = context;
@@ -33,12 +47,64 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         View view = LayoutInflater.from(context).inflate(R.layout.item_article, parent, false);
         return new ViewHolder(view);
     }
-
+    
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Binds data at given position into the view holder
-        Article article = articles.get(position);
+        final Article article = articles.get(position);
         holder.bind(article);
+
+        /*Go to article on image click*/
+        holder.ivImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Article " + article.getTitle() + " has been clicked");
+                Toast.makeText(context, "Opening '" + article.getTitle() + "'", Toast.LENGTH_SHORT).show();
+                goToWebView(article.getURL());
+            }
+        });
+        /*Go to article on title click*/
+        holder.tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Article " + article.getTitle() + " has been clicked");
+                Toast.makeText(context, "Opening '" + article.getTitle() + "'", Toast.LENGTH_SHORT).show();
+                goToWebView(article.getURL());
+            }
+        });
+
+        /*Like and Comment on Article Functionality*/
+        holder.ivHeartRed.setVisibility(View.GONE);
+        holder.ivHeart.setVisibility(View.VISIBLE);
+        heart = new Heart(holder.ivHeart, holder.ivHeartRed);
+        gestureDetector = new GestureDetector(context, new GestureListener());
+        textToggle(holder);
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private void textToggle(ViewHolder holder) {
+        holder.ivHeartRed.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Log.d(TAG, "onTouch: red heart touch detected");
+                return gestureDetector.onTouchEvent(motionEvent);
+            }
+        });
+
+        holder.ivHeart.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Log.d(TAG, "onTouch: heart touch detected");
+                return gestureDetector.onTouchEvent(motionEvent);
+            }
+        });
+    }
+
+    private void goToWebView(String url) {
+        Log.d(TAG, "Going to article webview");
+        Intent i = new Intent(context, ArticleWebView.class);
+        i.putExtra("url", url);
+        context.startActivity(i);
     }
 
     @Override
@@ -54,6 +120,11 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         private TextView tvAuthor;
         private TextView tvTimeStamp;
         private ImageView ivImage;
+        protected LinearLayout articleItem;
+        protected ImageView ivHeart;
+        protected ImageView ivHeartRed;
+        protected ImageView ivComment;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -62,6 +133,11 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             tvAuthor = itemView.findViewById(R.id.tvAuthor);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
+            articleItem = itemView.findViewById(R.id.articleItem);
+            ivHeart = itemView.findViewById(R.id.ivHeart);
+            ivHeartRed = itemView.findViewById(R.id.ivHeartRed);
+            ivComment = itemView.findViewById(R.id.ivComment);
+//            bottomNavigationView = itemView.findViewById(R.id.bottom_navigation);
         }
 
         public void bind(Article article) {
@@ -78,5 +154,25 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                 Glide.with(context).load(image.getUrl()).into(ivImage);
             }
         }
+
+        public void onClick(View view) {
+            Log.d(TAG, "onClick: " + getPosition() + " " + tvTitle);
+        }
     }
+
+    /*Where we quesry our database to add or remove likes on an article*/
+    public class GestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return true;
+        }
+
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            Log.d(TAG, "onDoubleTap: double tap detected");
+            heart.toggleLike();
+            return true;
+        }
+    }
+
 }

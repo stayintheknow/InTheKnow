@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_thumb_up"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_comment"
-        android:icon="@drawable/ic_comment"
-        app:showAsAction="always" />
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/action_favorite"
+            android:checkable="true"
+            android:icon="@drawable/ic_save"
+            android:title="Like"
+            app:itemBackground="@android:color/transparent"
+            app:itemIconTint="@color/like_item"
+            app:itemTextColor="@color/like_item"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/action_comment"
+            android:icon="@drawable/ic_comment"
+            android:title="Comment"
+            app:showAsAction="always" />
+    </group>
 </menu>

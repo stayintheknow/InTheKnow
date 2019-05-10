@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ArticleWebView"></activity>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".NewsFeedActivity" />
         <activity android:name=".LoginActivity">

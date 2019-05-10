@@ -21,20 +21,12 @@ import stayintheknow.intheknow.fragments.NewsfeedFragment;
 import stayintheknow.intheknow.fragments.ProfileFragment;
 import stayintheknow.intheknow.fragments.SettingsFragment;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
-
-import cz.msebera.android.httpclient.Header;
+/**
+ * The NewsFeedActivity handles the menu drawer that features the news feed, setting, profile, as
+ * well as all of the news categories and the logout button
+ * this activity takes care of navigating the user to the proper fragment based on the button that
+ * they select from the menu bar
+ */
 
 public class NewsFeedActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 

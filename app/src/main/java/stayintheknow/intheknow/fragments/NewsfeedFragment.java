@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import java.util.List;
 import stayintheknow.intheknow.Article;
 import stayintheknow.intheknow.ArticlesAdapter;
 import stayintheknow.intheknow.R;
+import stayintheknow.intheknow.utils.Heart;
 
 public class NewsfeedFragment extends Fragment {
 
@@ -29,6 +31,9 @@ public class NewsfeedFragment extends Fragment {
     private RecyclerView rvNewsfeed;
     private ArticlesAdapter adapter;
     private List<Article> mArticles;
+
+    private GestureDetector gestureDetector;
+    private Heart heart;
 
     @Nullable
     @Override
