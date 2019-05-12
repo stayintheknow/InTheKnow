@@ -1,4 +1,4 @@
-package stayintheknow.intheknow;
+package stayintheknow.intheknow.utils.APIs;
 
 import android.util.Log;
 
@@ -8,6 +8,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import stayintheknow.intheknow.Article;
+import stayintheknow.intheknow.Author;
 
 /**
  * This class makes api calls to New York Times and saves the corresponding articles in the parse API
