@@ -5,5 +5,6 @@
     <color name="colorPrimaryDark">#350140</color>
     <color name="colorAccent">#FF4081</color>
     <color name="navHeader">#762B86</color>
+    <color name="offWhite">#5BBEBAB2</color>
     <color name="white">#fff</color>
 </resources>
