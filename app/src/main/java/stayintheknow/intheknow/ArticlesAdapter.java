@@ -76,13 +76,13 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         /*Like and Comment on Article Functionality*/
         holder.ivHeartRed.setVisibility(View.GONE);
         holder.ivHeart.setVisibility(View.VISIBLE);
-        heart = new Heart(holder.ivHeart, holder.ivHeartRed);
+        heart = new Heart(holder.ivHeart, holder.ivHeartRed, article);
         gestureDetector = new GestureDetector(context, new GestureListener());
-        textToggle(holder);
+        textToggle(holder, article);
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private void textToggle(ViewHolder holder) {
+    private void textToggle(final ViewHolder holder, final Article article) {
         holder.ivHeartRed.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -95,6 +95,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 Log.d(TAG, "onTouch: heart touch detected");
+                gestureDetector.onTouchEvent(motionEvent);
                 return gestureDetector.onTouchEvent(motionEvent);
             }
         });
@@ -119,6 +120,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         private TextView tvDescription;
         private TextView tvAuthor;
         private TextView tvTimeStamp;
+        private TextView tvLikes;
         private ImageView ivImage;
         protected LinearLayout articleItem;
         protected ImageView ivHeart;
@@ -137,6 +139,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             ivHeart = itemView.findViewById(R.id.ivHeart);
             ivHeartRed = itemView.findViewById(R.id.ivHeartRed);
             ivComment = itemView.findViewById(R.id.ivComment);
+            tvLikes = itemView.findViewById(R.id.tvLikes);
 //            bottomNavigationView = itemView.findViewById(R.id.bottom_navigation);
         }
 
@@ -144,14 +147,22 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             tvTitle.setText(article.getTitle());
             tvDescription.setText(article.getDescription());
             tvAuthor.setText(article.getAuthor().getName());
+            /*SET DATE*/
             Date created = article.getTimeCreatedAt();
             String pattern = "MMMM dd, yyyy hh:mm a";
             SimpleDateFormat format = new SimpleDateFormat(pattern);
             String dateCreated = format.format(created);
             tvTimeStamp.setText(dateCreated);
+            /*SET FEATURE IMAGE*/
             ParseFile image = article.getImage();
             if(image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
+            }
+            /*SET LIKES*/
+            if(article.getLikeCount() == 1){
+                tvLikes.setText(article.getLikeCount() + " like");
+            } else {
+                tvLikes.setText(article.getLikeCount() + " likes");
             }
         }
 
