@@ -1,12 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings Fragment"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:text="Settings"
         android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:textColor="#6398ed"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/profileName"
+        android:layout_marginLeft="-55dp"
+        android:layout_marginTop="37dp"
+        android:textAlignment="gravity"
+        android:textSize="18sp"
+        android:text="Name"/>
+
+
+    <EditText
+        android:id="@+id/profileName"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/customborder"
+        android:ems="10"
+        android:text="Ninja"
+        android:textAlignment="center" />
+
+
+    <Button
+        android:id="@+id/nameBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/profileName"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="-93dp"
+        android:text="UPDATE" />
+
+
+    <TextView
+        android:id="@+id/emailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/nameLabel"
+        android:layout_alignLeft="@+id/profileEmail"
+        android:layout_marginLeft="-55dp"
+        android:layout_marginTop="10dp"
+        android:text="Email"
+        android:textSize="18sp"
+        android:textAlignment="gravity" />
+
+    <EditText
+        android:id="@+id/profileEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/profileName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/customborder"
+        android:text="current@email.com"
+        android:textAlignment="center"
+        android:ems="10"/>
+
+    <Button
+        android:id="@+id/emailBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/nameBtn"
+        android:layout_alignRight="@+id/profileEmail"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="-93dp"
+        android:text="UPDATE" />
+
+    <TextView
+        android:id="@+id/bioLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/emailLabel"
+        android:layout_alignLeft="@+id/profileEmail"
+        android:layout_marginLeft="-53dp"
+        android:layout_marginTop="15dp"
+        android:text="Bio"
+        android:textAlignment="gravity"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/profileBio"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/profileEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="I love Tech."
+        android:textAlignment="center"
+        android:ems="10"
+        android:background="@drawable/customborder"
+        />
+
+    <Button
+        android:id="@+id/bioBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/emailBtn"
+        android:layout_alignRight="@+id/profileBio"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="-91dp"
+        android:text="UPDATE" />
+
+    <TextView
+        android:id="@+id/tvPreferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profileBio"
+        android:layout_marginTop="30dp"
+        android:text="Preferences"
+        android:textColor="#6398ed"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"/>
+
+    <CheckBox
+        android:id="@+id/cbWorld"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPreferences"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:text="World News" />
+
+    <CheckBox
+        android:id="@+id/cbNewYork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbWorld"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:text="New York" />
+
+    <CheckBox
+        android:id="@+id/cbTech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbNewYork"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:text="Tech" />
+
+    <CheckBox
+        android:id="@+id/cbPolitics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbTech"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:text="Politics" />
+
+    <CheckBox
+        android:id="@+id/cbSports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbPolitics"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:text="Sports" />
+
+    <Button
+        android:id="@+id/submit_changes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbSports"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:text="SUBMIT CHANGES"/>
+
+
 </RelativeLayout>
+</ScrollView>
