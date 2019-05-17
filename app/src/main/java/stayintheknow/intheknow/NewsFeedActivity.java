@@ -20,6 +20,7 @@ import com.parse.ParseUser;
 import stayintheknow.intheknow.fragments.NewsfeedFragment;
 import stayintheknow.intheknow.fragments.ProfileFragment;
 import stayintheknow.intheknow.fragments.SettingsFragment;
+import stayintheknow.intheknow.utils.APIs.NYTArticleAPI;
 
 /**
  * The NewsFeedActivity handles the menu drawer that features the news feed, setting, profile, as
@@ -38,6 +39,10 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
+
+        //TESTING NYTArticleAPI
+
+        NYTArticleAPI.getNYTArticles("Sports");
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);

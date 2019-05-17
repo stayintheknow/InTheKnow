@@ -2,6 +2,9 @@ package stayintheknow.intheknow.utils.APIs;
 
 import android.util.Log;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +12,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import cz.msebera.android.httpclient.Header;
 import stayintheknow.intheknow.Article;
 import stayintheknow.intheknow.Author;
 
@@ -16,16 +20,49 @@ import stayintheknow.intheknow.Author;
  * This class makes api calls to New York Times and saves the corresponding articles in the parse API
  **/
 
+
 public class NYTArticleAPI {
+
+    private static String[] sections = {"U.S" , "Health" , "NewYork" , "Tech" , "World"};
+
+
+    private static List<NYTArticleAPI> articles;
 
     private static final String TAG = "NYTArticleAPI";
 
-    public static boolean getNYTArticles() {
-        //TODO: MAKE API CALL TO NYTIMES WITH SOURCE PARAMATER = nyt (wrap in try catch blocks, return false if error caught)
-        //TODO: EACH ARTICLE RETRIEVED IS SAVED TO PARSE DATABASE
-        //TODO: USE FROMJSONARRAY() TO ACHIEVE THIS
-        //TODO: if toParse() returns false, return false at that time
-        //TODO: look at Article.java to attributes about article needed
+
+    public static void getAllSections(){
+
+        for ( int i = 0; i < sections.length; i++){
+            getNYTArticles(sections[i]);
+        }
+
+    }
+
+    public static boolean getNYTArticles(String section) {
+
+       String ARTICLE_URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq="+ section +"&api-key=g7LVstKd7fsJilQAsdfgjInDmXRSco54";
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(ARTICLE_URL, new JsonHttpResponseHandler() { //<-- callback method to the API
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                try {
+                    JSONObject results = response.getJSONObject("response");
+                    JSONArray articlesArray = results.getJSONArray("docs");
+                    articles =  fromJsonArray(articlesArray);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.d(TAG, "getNYTArticles: ");
+                }
+                //TODO: find a way to return false on an overwritten void method
+
+            }
+
+        });
+
         return true;
     }
 
@@ -41,7 +78,7 @@ public class NYTArticleAPI {
     }
 
     private static boolean toParse(JSONObject jsonObject) {
-        String author, url, description, picture_url, title = "";
+        String author, url, description, picture_url, title, category, publication_date;
 
         try {
             author = jsonObject.getJSONObject("byline").getString("original");
@@ -50,7 +87,9 @@ public class NYTArticleAPI {
             //if (array.size() < 0) dont add it to the arrayList
             picture_url = jsonObject.getJSONArray("multimedia").getJSONObject(0).getString("url");
             title = jsonObject.getJSONObject("headline").getString("main");
-            //TODO: GET ARTICLE CATEGORY AND CREATED DATE
+            category = jsonObject.getString("section_name");
+            publication_date = jsonObject.getString("pub_date");
+
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, "toParse: ");
@@ -65,9 +104,10 @@ public class NYTArticleAPI {
         article.setTitle(title);
         article.setAuthor(auth);
         article.setURL(url);
-        //TODO: article.setCategory();
+        article.setCategory(category);
         article.setDataSouce("New York Times");
         article.setDescription(description);
+        //TODO: set publication date
         //TODO: make https request to get image and save to a java File object
         //todo: File pictureFile = ...
         //todo: ParseFile image = new ParseFile(pictureFile);
