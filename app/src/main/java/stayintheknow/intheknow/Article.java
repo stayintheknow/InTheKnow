@@ -18,6 +18,9 @@ public class Article extends ParseObject {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_DATA_SOURCE = "dataSource";
     public static final String KEY_CREATED_AT = "createdAt";
+    public static final String KEY_IMAGE_URL= "imageURL";
+
+    public String getImageURL() { return getString(KEY_IMAGE_URL);};
 
     public Date getTimeCreatedAt() { return getCreatedAt(); }
 
@@ -80,6 +83,8 @@ public class Article extends ParseObject {
     public void setImage(ParseFile image) {
         put(KEY_IMAGE, image);
     }
+
+    public void setImageURL(String image){ put(KEY_IMAGE_URL, image); }
 
     public void setDescription(String description) {
         put(KEY_DESCRIPTION, description);
