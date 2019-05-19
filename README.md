@@ -172,3 +172,6 @@ The following **required** functionality is completed:
 
 ## Walkthrough Three
 <img src="walkthrough3.gif"/>
+
+## Walkthrough Four
+<img src="walkthrough4.gif"/>
