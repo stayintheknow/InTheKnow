@@ -88,13 +88,15 @@ public class NewsfeedFragment extends Fragment {
 
     private void fetchArticlesAsync() {
         adapter.clear();
-        NYTArticleAPI.getNYTArticles("Sports");
         queryArticles();
-        adapter.notifyDataSetChanged();
         swipeContainer.setRefreshing(false);
     }
 
     private void queryArticles() {
+
+        /*Fetch from api*/
+        NYTArticleAPI.getNYTArticles("Sports");
+
         ParseQuery<Article> articleQuery = new ParseQuery<Article>(Article.class);
         articleQuery.include(Article.KEY_AUTHOR);
         articleQuery.include(Article.KEY_CREATED_AT);
