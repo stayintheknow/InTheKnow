@@ -159,6 +159,7 @@ The following **required** functionality is completed:
 - [X] Users can navigate through app screens through a navigation bar
 - [X] Newsfeed list items are clickable and lead to corresponding articles
 - [X] User can double click on like button and view like button animation for selection
+- [X] New articles are pulled from the new york times api on refresh
 - [ ] User can view his or her personalized news feed.
 - [ ] User can set and change preferences.
 - [ ] User can view his or her profile.
