@@ -41,7 +41,6 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/customborder"
         android:ems="10"
-        android:text="Ninja"
         android:textAlignment="center" />
 
 
@@ -76,7 +75,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/customborder"
-        android:text="current@email.com"
         android:textAlignment="center"
         android:ems="10"/>
 
@@ -109,7 +107,6 @@
         android:layout_below="@+id/profileEmail"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="I love Tech."
         android:textAlignment="center"
         android:ems="10"
         android:background="@drawable/customborder"
