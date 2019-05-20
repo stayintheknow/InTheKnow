@@ -25,11 +25,11 @@
         android:layout_height="40dp"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/profileName"
-        android:layout_marginLeft="-55dp"
+        android:layout_marginLeft="-85dp"
         android:layout_marginTop="37dp"
         android:textAlignment="gravity"
         android:textSize="18sp"
-        android:text="Name"/>
+        android:text="Username"/>
 
 
     <EditText
@@ -61,7 +61,7 @@
         android:layout_height="40dp"
         android:layout_below="@+id/nameLabel"
         android:layout_alignLeft="@+id/profileEmail"
-        android:layout_marginLeft="-55dp"
+        android:layout_marginLeft="-85dp"
         android:layout_marginTop="10dp"
         android:text="Email"
         android:textSize="18sp"
@@ -94,7 +94,7 @@
         android:layout_height="30dp"
         android:layout_below="@+id/emailLabel"
         android:layout_alignLeft="@+id/profileEmail"
-        android:layout_marginLeft="-53dp"
+        android:layout_marginLeft="-85dp"
         android:layout_marginTop="15dp"
         android:text="Bio"
         android:textAlignment="gravity"
