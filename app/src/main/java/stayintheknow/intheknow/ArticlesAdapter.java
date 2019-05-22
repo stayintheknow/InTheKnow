@@ -165,7 +165,6 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             tvTitle.setText(article.getTitle());
             tvDescription.setText(article.getDescription());
             tvAuthor.setText(article.getAuthor().getName());
-
             /*SET DATE*/
             Date created = article.getTimeCreatedAt();
             String pattern = "MMMM dd, yyyy hh:mm a";
@@ -175,6 +174,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 
             /*Inflate feature image*/
             String imgURL = "https://www.nytimes.com/" + article.getImageURL();
+
             /*SET FEATURE IMAGE*/
             ParseFile image = article.getImage();
             if(image != null) {
@@ -187,6 +187,12 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                 tvLikes.setText(article.getLikeCount() + " save");
             } else {
                 tvLikes.setText(article.getLikeCount() + " saves");
+            }
+            /*SET LIKES*/
+            if(article.getLikeCount() == 1){
+                tvLikes.setText(article.getLikeCount() + " like");
+            } else {
+                tvLikes.setText(article.getLikeCount() + " likes");
             }
         }
 
