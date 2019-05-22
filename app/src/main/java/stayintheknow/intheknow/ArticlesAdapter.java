@@ -78,11 +78,11 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         });
 
         /*Like and Comment on Article Functionality*/
-        holder.ivHeartRed.setVisibility(View.GONE);
-        holder.ivHeart.setVisibility(View.VISIBLE);
-        heart = new Heart(holder.ivHeart, holder.ivHeartRed, article);
-        gestureDetector = new GestureDetector(context, new GestureListener());
-        textToggle(holder, article);
+//        holder.ivHeartRed.setVisibility(View.GONE);
+//        holder.ivHeart.setVisibility(View.VISIBLE);
+//        heart = new Heart(holder.ivHeart, holder.ivHeartRed, article);
+//        gestureDetector = new GestureDetector(context, new GestureListener());
+//        textToggle(holder, article);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -142,6 +142,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         protected ImageView ivHeart;
         protected ImageView ivHeartRed;
         protected ImageView ivComment;
+        protected Object saveButton;
 
 
         public ViewHolder(View itemView) {
@@ -152,8 +153,9 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             ivImage = itemView.findViewById(R.id.ivImage);
             tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
             articleItem = itemView.findViewById(R.id.articleItem);
-            ivHeart = itemView.findViewById(R.id.ivHeart);
-            ivHeartRed = itemView.findViewById(R.id.ivHeartRed);
+//            ivHeart = itemView.findViewById(R.id.ivHeart);
+//            ivHeartRed = itemView.findViewById(R.id.ivHeartRed);
+            saveButton = itemView.findViewById(R.id.saveBtn);
             ivComment = itemView.findViewById(R.id.ivComment);
             tvLikes = itemView.findViewById(R.id.tvLikes);
 //            bottomNavigationView = itemView.findViewById(R.id.bottom_navigation);
@@ -182,9 +184,9 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             }
             /*SET LIKES*/
             if(article.getLikeCount() == 1){
-                tvLikes.setText(article.getLikeCount() + " like");
+                tvLikes.setText(article.getLikeCount() + " save");
             } else {
-                tvLikes.setText(article.getLikeCount() + " likes");
+                tvLikes.setText(article.getLikeCount() + " saves");
             }
         }
 

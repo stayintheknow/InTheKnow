@@ -47,5 +47,7 @@ dependencies {
     // Swipe Refresh
     implementation 'com.android.support:support-v4:27.1.1'
 
+    //Like Button
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
 }
