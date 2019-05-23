@@ -8,6 +8,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
+import stayintheknow.intheknow.Article;
+
 public class Heart {
     private static final String TAG = "Heart";
 
@@ -15,10 +17,12 @@ public class Heart {
     private static final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
 
     public ImageView heart, heartRed;
+    public Article article;
 
-    public Heart(ImageView ivHeart, ImageView ivHeartRed) {
+    public Heart(ImageView ivHeart, ImageView ivHeartRed, Article article) {
         this.heart = ivHeart;
         this.heartRed = ivHeartRed;
+        this.article = article;
     }
 
     public void toggleLike() {
@@ -43,10 +47,14 @@ public class Heart {
             heart.setVisibility(View.VISIBLE);
 
             animatorSet.playTogether(scaleDownY, scaleDownX);
-        }
-
-        else if(heartRed.getVisibility() == View.GONE) {
+        } else if(heartRed.getVisibility() == View.GONE) {
             Log.d(TAG, "toggleLike: toggling red heart on");
+
+            /*Persist like to the database*/
+            int likes = article.getLikeCount();
+            article.setLikeCount(++likes);
+
+            /*Make heart red*/
             heartRed.setScaleX(0.1f);
             heartRed.setScaleY(0.1f);
 
@@ -62,8 +70,10 @@ public class Heart {
             heart.setVisibility(View.GONE);
 
             animatorSet.playTogether(scaleDownY, scaleDownX);
+
         }
 
         animatorSet.start();
+
     }
 }
