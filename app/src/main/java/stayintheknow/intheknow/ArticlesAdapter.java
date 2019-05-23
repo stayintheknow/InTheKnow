@@ -20,8 +20,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.like.OnLikeListener;
+import com.parse.DeleteCallback;
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.squareup.picasso.Picasso;
+import com.like.LikeButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -77,12 +86,114 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             }
         });
 
-        /*Like and Comment on Article Functionality*/
-//        holder.ivHeartRed.setVisibility(View.GONE);
-//        holder.ivHeart.setVisibility(View.VISIBLE);
-//        heart = new Heart(holder.ivHeart, holder.ivHeartRed, article);
-//        gestureDetector = new GestureDetector(context, new GestureListener());
-//        textToggle(holder, article);
+        holder.saveButton.setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+                Log.d(TAG, "Saved: " + article.getTitle());
+                Toast.makeText(context, "saved", Toast.LENGTH_SHORT).show();
+
+                // UPDATE LIKES IN PARSE
+                updateLikes(true, article);
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                Log.d(TAG, "Unsaved: " + article.getTitle());
+                Toast.makeText(context, "no longer saved", Toast.LENGTH_SHORT).show();
+
+                //TODO: UPDATE PARSE
+                updateLikes(false, article);
+            }
+        });
+    }
+
+    private void updateLikes(boolean saved, Article article) {
+        if(saved) {
+            int likes = article.getLikeCount();
+            article.setLikeCount(++likes);
+            article.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if(e != null) {
+                        Log.d(TAG, "done: Error while saving likes");
+                        Toast.makeText(context, "Error while recording save", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                        return;
+                    }
+                    Log.d(TAG, "done: Successfully saved likes");
+                    Toast.makeText(context, "article save recorded", Toast.LENGTH_SHORT).show();
+                    notifyDataSetChanged();
+                }
+            });
+            Log.d(TAG, "updateLikes: creating like object");
+            Like like = new Like();
+            Log.d(TAG, "updateLikes: created like object");
+            like.setUser(ParseUser.getCurrentUser());
+            Log.d(TAG, "updateLikes: set like user");
+            like.setArticle(article);
+            Log.d(TAG, "updateLikes: going to save like object in background");
+            like.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if(e != null) {
+                        Log.d(TAG, "done: Error while creating like object for user and article");
+                        Toast.makeText(context, "Error while associating article with your account", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                        return;
+                    }
+                    Log.d(TAG, "done: created like object for user and article");
+                    Toast.makeText(context, "article saved to your account", Toast.LENGTH_SHORT).show();
+                    notifyDataSetChanged();
+                }
+            });
+        } else {
+            int likes = article.getLikeCount();
+            article.setLikeCount(--likes);
+            article.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if(e != null) {
+                        Log.d(TAG, "done: Error while saving unlikes");
+                        Toast.makeText(context, "Error while unsaving", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                        return;
+                    }
+                    Log.d(TAG, "done: Successfully saved unlike");
+                    Toast.makeText(context, "Unsaved", Toast.LENGTH_SHORT).show();
+                    notifyDataSetChanged();
+                }
+            });
+            deleteLike(article);
+        }
+    }
+
+    private void deleteLike(Article article) {
+        ParseQuery<Like> query = new ParseQuery<Like>(Like.class);
+        query.whereEqualTo("user", ParseUser.getCurrentUser());
+        query.whereEqualTo("article", article);
+        query.findInBackground(new FindCallback<Like>() {
+            @Override
+            public void done(List<Like> likes, ParseException e) {
+                if(e != null) {
+                    Log.d(TAG, "Error: getting like object");
+                    e.printStackTrace();
+                    return;
+                }
+                Log.d(TAG, "Success: got like object");
+                // Remove like
+                ParseObject.deleteAllInBackground(likes, new DeleteCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e != null) {
+                            Log.d(TAG, "Error: error deleting like object");
+                            e.printStackTrace();
+                            return;
+                        }
+                        Log.d(TAG, "Success: deleted like object");
+                    }
+                });
+            }
+        });
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -142,7 +253,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         protected ImageView ivHeart;
         protected ImageView ivHeartRed;
         protected ImageView ivComment;
-        protected Object saveButton;
+        protected LikeButton saveButton;
 
 
         public ViewHolder(View itemView) {
@@ -196,21 +307,6 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             }
         }
 
-    }
-
-    /*Where we quesry our database to add or remove likes on an article*/
-    public class GestureListener extends GestureDetector.SimpleOnGestureListener {
-        @Override
-        public boolean onDown(MotionEvent e) {
-            return true;
-        }
-
-        @Override
-        public boolean onDoubleTap(MotionEvent e) {
-            Log.d(TAG, "onDoubleTap: double tap detected");
-            heart.toggleLike();
-            return true;
-        }
     }
 
 }

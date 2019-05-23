@@ -33,7 +33,7 @@
         <com.like.LikeButton
             app:like_drawable="@drawable/ic_save_selected"
             app:unlike_drawable="@drawable/ic_save"
-            app:icon_size="33dp"
+            app:icon_size="32dp"
             app:liked="false"
             android:id="@+id/saveBtn"
             android:layout_marginTop="-10dp"
