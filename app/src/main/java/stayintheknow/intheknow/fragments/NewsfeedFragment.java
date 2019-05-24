@@ -91,12 +91,12 @@ public class NewsfeedFragment extends Fragment {
     private void queryArticles() {
         Log.d(TAG, "queryArticles: going to fetch articles");
         /*Fetch from api*/
-        NYTArticleAPI.getNYTArticles("Briefing");
+        NYTArticleAPI.getNYTArticles("Today's Headlines");
         Log.d(TAG, "queryArticles: fetched articles");
         ParseQuery<Article> articleQuery = new ParseQuery<Article>(Article.class);
         articleQuery.include(Article.KEY_AUTHOR);
         articleQuery.include(Article.KEY_CREATED_AT);
-        articleQuery.whereEqualTo(Article.KEY_CATEGORY,"Briefing");
+//        articleQuery.whereEqualTo(Article.KEY_CATEGORY,"Briefing");
         articleQuery.addDescendingOrder(Article.KEY_CREATED_AT);
         articleQuery.findInBackground(new FindCallback<Article>() {
             @Override
