@@ -89,11 +89,13 @@ public class WorldFragment extends Fragment {private SwipeRefreshLayout swipeCon
     private void queryArticles() {
 
         /*Fetch from api*/
-        NYTArticleAPI.getNYTArticles("Sports");
+        NYTArticleAPI.getNYTArticles("Universal");
 
         ParseQuery<Article> articleQuery = new ParseQuery<Article>(Article.class);
         articleQuery.include(Article.KEY_AUTHOR);
         articleQuery.include(Article.KEY_CREATED_AT);
+        articleQuery.whereEqualTo(Article.KEY_CATEGORY, "Universal");
+//        articleQuery.whereEqualTo(Article.KEY_CATEGORY, "World");
         articleQuery.addDescendingOrder(Article.KEY_CREATED_AT);
         articleQuery.findInBackground(new FindCallback<Article>() {
             @Override

@@ -41,8 +41,9 @@ public class NYTArticleAPI {
 
     public static void getNYTArticles(String section) {
 
-        String ARTICLE_URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq="+ section +"&api-key=g7LVstKd7fsJilQAsdfgjInDmXRSco54";
+        String ARTICLE_URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:"+ section +"&api-key=g7LVstKd7fsJilQAsdfgjInDmXRSco54";
 
+        Log.d(TAG, "getNYTArticles: " + ARTICLE_URL);
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(ARTICLE_URL, new JsonHttpResponseHandler() { //<-- callback method to the API
 

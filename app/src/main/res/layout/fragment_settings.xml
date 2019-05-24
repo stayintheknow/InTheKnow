@@ -323,21 +323,21 @@
             android:textSize="20sp" />
 
         <CheckBox
-            android:id="@+id/cbPolitics"
+            android:id="@+id/cbScience"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cbTech"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:fontFamily="serif-monospace"
-            android:text="Politics"
+            android:text="Science"
             android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/cbSports"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/cbPolitics"
+            android:layout_below="@+id/cbScience"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:fontFamily="serif-monospace"

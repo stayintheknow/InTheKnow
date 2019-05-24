@@ -41,14 +41,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <ImageButton
-            android:id="@+id/ivComment"
-            android:background="@android:color/transparent"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="45dp"
-            app:srcCompat="@drawable/ic_comment_lines"
-            tools:ignore="VectorDrawableCompat" />
+        <!--<ImageButton-->
+            <!--android:id="@+id/ivComment"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:layout_marginLeft="45dp"-->
+            <!--app:srcCompat="@drawable/ic_comment_lines"-->
+            <!--tools:ignore="VectorDrawableCompat" />-->
 
     </RelativeLayout>
 

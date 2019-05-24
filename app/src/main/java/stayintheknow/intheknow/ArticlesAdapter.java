@@ -267,7 +267,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 //            ivHeart = itemView.findViewById(R.id.ivHeart);
 //            ivHeartRed = itemView.findViewById(R.id.ivHeartRed);
             saveButton = itemView.findViewById(R.id.saveBtn);
-            ivComment = itemView.findViewById(R.id.ivComment);
+//            ivComment = itemView.findViewById(R.id.ivComment);
             tvLikes = itemView.findViewById(R.id.tvLikes);
 //            bottomNavigationView = itemView.findViewById(R.id.bottom_navigation);
         }
