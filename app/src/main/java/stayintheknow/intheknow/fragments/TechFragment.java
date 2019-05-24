@@ -89,7 +89,7 @@ public class TechFragment extends Fragment {private SwipeRefreshLayout swipeCont
     private void queryArticles() {
 
         /*Fetch from api*/
-        NYTArticleAPI.getNYTArticles("Personal Tech");
+        NYTArticleAPI.getNYTArticles("Tech");
 
         ParseQuery<Article> articleQuery = new ParseQuery<Article>(Article.class);
         articleQuery.include(Article.KEY_AUTHOR);
