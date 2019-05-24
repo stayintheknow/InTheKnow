@@ -28,6 +28,8 @@ public class SettingsFragment extends Fragment {
     private EditText profileEmail;
     private EditText profileBio;
     private EditText profileFullName;
+    private EditText etpassword;
+    private EditText etpasswordConfirm;
 
 
     @Nullable
@@ -46,20 +48,47 @@ public class SettingsFragment extends Fragment {
         profileEmail = view.findViewById(R.id.profileEmail);
         profileBio = view.findViewById(R.id.profileBio);
         profileFullName = view.findViewById(R.id.etfullName);
+        etpassword = view.findViewById(R.id.etPassword);
+        etpasswordConfirm = view.findViewById(R.id.etPasswordConfirm);
 
 
         // Retrieve user's current informatio
         final ParseUser currentUser = ParseUser.getCurrentUser();
-        if (currentUser != null) {
+        Object currentBio = currentUser.get("bio");
+        Object curFullName = currentUser.get("name");
+        if (currentUser != null ) {
             profileName.setText(currentUser.getUsername());
             profileEmail.setText(currentUser.getEmail());
-            profileBio.setText(currentUser.get("bio").toString());
-            profileFullName.setText(currentUser.get("name").toString());
+            if(currentBio != null && curFullName != null) {
+                profileBio.setText(currentBio.toString());
+                profileFullName.setText(curFullName.toString());
+            }
         }
 
         setting_changes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String username = profileName.getText().toString();
+                String password = etpassword.getText().toString();
+                String passwordConfirm = etpasswordConfirm.getText().toString();
+
+                if(username.length() < 1) {
+                    Toast.makeText(getContext(),"You must have a username", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(password.length() > 0) {
+                    if(!password.equals(passwordConfirm)){
+                        Toast.makeText(getContext(),"Password must match", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if(password.length() < 7) {
+                        Toast.makeText(getContext(),"Password must be at least 7 characters", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    currentUser.setPassword(password);
+                }
+
                 currentUser.setEmail(profileEmail.getText().toString());
                 currentUser.setUsername(profileName.getText().toString());
                 currentUser.put("bio", profileBio.getText().toString());

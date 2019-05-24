@@ -14,6 +14,8 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+import stayintheknow.intheknow.fragments.SettingsFragment;
+
 public class RegistrationActivity extends AppCompatActivity {
     public static final String TAG = "RegistrationActivity";
 
@@ -47,8 +49,25 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = etnewPassword.getText().toString();
                 String passwordConfirm = etconfirmPassword.getText().toString();
 
+                if(username.length() < 1){
+                    Toast.makeText(getApplicationContext(), "Must provide username", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(email.length() < 1){
+                    Toast.makeText(getApplicationContext(), "Must provide email", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if(!password.equals(passwordConfirm)){
                     Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    etnewPassword.setText("");
+                    etconfirmPassword.setText("");
+                    return;
+                }
+
+                if(password.length() < 7) {
+                    Toast.makeText(getApplicationContext(),"Password must be at least 7 characters", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -99,14 +118,14 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
                 //TODO: navigate to newsfeed if the user has signed in properly
-                goToNewsFeed();
+                goToNewsfeed();
             }
         });
     }
 
-    private void goToNewsFeed() {
+    private void goToNewsfeed() {
         Log.d(TAG, "Login successful");
-        Intent i = new Intent(this,NewsFeedActivity.class);
+        Intent i = new Intent(this, NewsFeedActivity.class);
         startActivity(i);
         finish();
     }
