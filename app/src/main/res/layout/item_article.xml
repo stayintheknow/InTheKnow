@@ -30,28 +30,24 @@
         android:layout_marginTop="5dp"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/ivHeartRed"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:visibility="invisible"
-            app:srcCompat="@drawable/ic_heart_red"
-            tools:ignore="VectorDrawableCompat" />
+        <com.like.LikeButton
+            app:like_drawable="@drawable/ic_save_selected"
+            app:unlike_drawable="@drawable/ic_save"
+            app:icon_size="32dp"
+            app:liked="false"
+            android:id="@+id/saveBtn"
+            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="-30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <ImageView
-            android:id="@+id/ivHeart"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:visibility="visible"
-            app:srcCompat="@drawable/ic_heart"
-            tools:ignore="VectorDrawableCompat" />
-
-        <ImageView
+        <ImageButton
             android:id="@+id/ivComment"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_marginLeft="40dp"
-            app:srcCompat="@drawable/ic_comment"
+            android:background="@android:color/transparent"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="45dp"
+            app:srcCompat="@drawable/ic_comment_lines"
             tools:ignore="VectorDrawableCompat" />
 
     </RelativeLayout>
@@ -60,6 +56,7 @@
         android:id="@+id/tvLikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
         android:text="XX,XXX likes"
         android:textSize="10sp" />
 
@@ -67,13 +64,16 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
         android:text="Science is cool"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/tvAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"
         android:text="Ninja"
         android:textSize="12dp"
         android:textStyle="bold" />
@@ -82,6 +82,7 @@
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
         android:text="Be life long learners. It pays off in the long run" />
 
     <TextView
@@ -89,6 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:fontFamily="serif-monospace"
         android:text="TextView"
         android:textSize="10sp"
         tools:text="1min" />
