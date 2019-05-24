@@ -60,7 +60,7 @@ public class SettingsFragment extends Fragment {
     private CheckBox cbNewYork;
     private CheckBox cbUS;
     private CheckBox cbTech;
-    private CheckBox cbPolitics;
+    private CheckBox cbScience;
     private CheckBox cbSports;
     private CheckBox cbHealth;
 
@@ -90,7 +90,7 @@ public class SettingsFragment extends Fragment {
         //Preferences
         cbHealth = view.findViewById(R.id.cbHealth);
         cbNewYork = view.findViewById(R.id.cbNewYork);
-        cbPolitics = view.findViewById(R.id.cbPolitics);
+        cbScience = view.findViewById(R.id.cbScience);
         cbSports = view.findViewById(R.id.cbSports);
         cbTech = view.findViewById(R.id.cbTech);
         cbUS = view.findViewById(R.id.cbUS);
@@ -125,7 +125,7 @@ public class SettingsFragment extends Fragment {
             boolean tech = currentUser.getBoolean("tech");
             boolean health = currentUser.getBoolean("health");
             boolean sports = currentUser.getBoolean("sports");
-            boolean politics = currentUser.getBoolean("politics");
+            boolean science = currentUser.getBoolean("science");
 
             if(world) cbWorld.setChecked(true);
             if(us) cbUS.setChecked(true);
@@ -133,7 +133,7 @@ public class SettingsFragment extends Fragment {
             if(tech) cbTech.setChecked(true);
             if(health) cbHealth.setChecked(true);
             if(sports) cbSports.setChecked(true);
-            if(politics) cbPolitics.setChecked(true);
+            if(science) cbScience.setChecked(true);
 
         }
 
@@ -215,11 +215,11 @@ public class SettingsFragment extends Fragment {
                     selectedCat.add("nav_cat_ny");
                     currentUser.put("NewYork", true);
                 }
-                if(!cbPolitics.isChecked()) {
-                    currentUser.put("politics", false);
-                } else if(cbPolitics.isChecked()) {
-                    selectedCat.add("nav_cat_politics");
-                    currentUser.put("politics", true);
+                if(!cbScience.isChecked()) {
+                    currentUser.put("science", false);
+                } else if(cbScience.isChecked()) {
+                    selectedCat.add("nav_cat_science");
+                    currentUser.put("science", true);
                 }
                 if(!cbSports.isChecked()) {
                     currentUser.put("sports", false);

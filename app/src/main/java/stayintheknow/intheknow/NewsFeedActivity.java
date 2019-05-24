@@ -18,14 +18,13 @@ import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 import stayintheknow.intheknow.fragments.HealthFragment;
 import stayintheknow.intheknow.fragments.NYFragment;
 import stayintheknow.intheknow.fragments.NewsfeedFragment;
-import stayintheknow.intheknow.fragments.PoliticsFragment;
+import stayintheknow.intheknow.fragments.ScienceFragment;
 import stayintheknow.intheknow.fragments.ProfileFragment;
 import stayintheknow.intheknow.fragments.SettingsFragment;
 import stayintheknow.intheknow.fragments.SportsFragment;
@@ -73,7 +72,7 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
         MenuItem nav_tech = menu.findItem(R.id.nav_cat_tech);
         MenuItem nav_health = menu.findItem(R.id.nav_cat_health);
         MenuItem nav_sport = menu.findItem(R.id.nav_cat_sports);
-        MenuItem nav_politics = menu.findItem(R.id.nav_cat_politics);
+        MenuItem nav_science = menu.findItem(R.id.nav_cat_science);
 
         /*set menu items from current user*/
         ParseUser currentUser = ParseUser.getCurrentUser();
@@ -84,7 +83,7 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
         boolean tech = currentUser.getBoolean("tech");
         boolean health = currentUser.getBoolean("health");
         boolean sports = currentUser.getBoolean("sports");
-        boolean politics = currentUser.getBoolean("politics");
+        boolean science = currentUser.getBoolean("science");
 
         if(!world) nav_world.setVisible(false);
         if(!us) nav_us.setVisible(false);
@@ -92,7 +91,7 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
         if(!tech) nav_tech.setVisible(false);
         if(!health) nav_health.setVisible(false);
         if(!sports) nav_sport.setVisible(false);
-        if(!politics) nav_politics.setVisible(false);
+        if(!science) nav_science.setVisible(false);
 
         /*Set menu items from settings*/
         ArrayList<String> extras = getIntent().getStringArrayListExtra("selectedCategories");
@@ -113,7 +112,7 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
                         break;
                     case "nav_cat_politics":
                         Log.d(TAG, "Invisible: Political News");
-                        nav_politics.setVisible(true);
+                        nav_science.setVisible(true);
                         break;
                     case "nav_cat_tech":
                         Log.d(TAG, "Invisible: Tech News");
@@ -166,9 +165,9 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(this, "New York News", Toast.LENGTH_SHORT).show();
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NYFragment()).commit();
                 break;
-            case R.id.nav_cat_politics:
-                Toast.makeText(this, "Political News", Toast.LENGTH_SHORT).show();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PoliticsFragment()).commit();
+            case R.id.nav_cat_science:
+                Toast.makeText(this, "Science News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ScienceFragment()).commit();
                 break;
             case R.id.nav_cat_tech:
                 Toast.makeText(this, "Tech News", Toast.LENGTH_SHORT).show();
@@ -236,6 +235,6 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
         MenuItem nav_tech = menu.findItem(R.id.nav_cat_tech);
         MenuItem nav_health = menu.findItem(R.id.nav_cat_health);
         MenuItem nav_sport = menu.findItem(R.id.nav_cat_sports);
-        MenuItem nav_politics = menu.findItem(R.id.nav_cat_politics);
+        MenuItem nav_politics = menu.findItem(R.id.nav_cat_science);
     }
 }

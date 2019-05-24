@@ -46,9 +46,9 @@
                     android:icon="@drawable/ic_running"
                     android:title="Sports" />
                 <item
-                    android:id="@+id/nav_cat_politics"
-                    android:icon="@drawable/ic_politics"
-                    android:title="Politics" />
+                    android:id="@+id/nav_cat_science"
+                    android:icon="@drawable/ic_science"
+                    android:title="Science" />
             </group>
         </menu>
     </item>
