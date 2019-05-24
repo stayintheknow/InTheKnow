@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<color name="colorPrimary">#3F51B5</color>-->
-    <color name="colorPrimary">#C82D2830</color>
-    <color name="colorPrimaryDark">#350140</color>
+    <color name="colorPrimary">#EE08080A</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="navHeader">#762B86</color>
     <color name="offWhite">#5BBEBAB2</color>
+    <color name="profile">#C8F3EDED</color>
     <color name="white">#fff</color>
 </resources>

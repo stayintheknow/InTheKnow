@@ -59,10 +59,6 @@ public class NewsfeedFragment extends Fragment {
         // set the layout manager on the recycler view
         rvNewsfeed.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //TESTING NYTArticleAPI
-//        NYTArticleAPI.getNYTArticles("Sports");
-//        adapter.notifyDataSetChanged();
-
         queryArticles();
 
         // Lookup the swipe container view
