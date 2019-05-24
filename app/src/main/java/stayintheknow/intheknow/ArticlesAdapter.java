@@ -320,7 +320,6 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                 }
             });
         }
-
     }
 
 }
