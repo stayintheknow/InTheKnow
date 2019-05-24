@@ -22,9 +22,16 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import stayintheknow.intheknow.fragments.HealthFragment;
+import stayintheknow.intheknow.fragments.NYFragment;
 import stayintheknow.intheknow.fragments.NewsfeedFragment;
+import stayintheknow.intheknow.fragments.PoliticsFragment;
 import stayintheknow.intheknow.fragments.ProfileFragment;
 import stayintheknow.intheknow.fragments.SettingsFragment;
+import stayintheknow.intheknow.fragments.SportsFragment;
+import stayintheknow.intheknow.fragments.TechFragment;
+import stayintheknow.intheknow.fragments.USFragment;
+import stayintheknow.intheknow.fragments.WorldFragment;
 
 /**
  * The NewsFeedActivity handles the menu drawer that features the news feed, setting, profile, as
@@ -149,24 +156,31 @@ public class NewsFeedActivity extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.nav_cat_world:
                 Toast.makeText(this, "World News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new WorldFragment()).commit();
                 break;
             case R.id.nav_cat_us:
                 Toast.makeText(this, "U.S. News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new USFragment()).commit();
                 break;
             case R.id.nav_cat_ny:
                 Toast.makeText(this, "New York News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NYFragment()).commit();
                 break;
             case R.id.nav_cat_politics:
                 Toast.makeText(this, "Political News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PoliticsFragment()).commit();
                 break;
             case R.id.nav_cat_tech:
                 Toast.makeText(this, "Tech News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new TechFragment()).commit();
                 break;
             case R.id.nav_cat_health:
-                Toast.makeText(this, "Health News", Toast.LENGTH_SHORT).show();;
+                Toast.makeText(this, "Health News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HealthFragment()).commit();
                 break;
             case R.id.nav_cat_sports:
-                Toast.makeText(this, "Sports News", Toast.LENGTH_SHORT).show();;
+                Toast.makeText(this, "Sports News", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SportsFragment()).commit();
                 break;
             case R.id.nav_logout:
                 Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show();
