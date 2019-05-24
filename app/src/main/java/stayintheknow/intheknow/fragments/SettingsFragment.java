@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import stayintheknow.intheknow.R;
 
 public class SettingsFragment extends Fragment {
+
+    private static final String TAG = "SettingsFragment";
 
     private Button setting_changes;
     private Button submit_changes;
@@ -44,7 +49,7 @@ public class SettingsFragment extends Fragment {
 
 
         // Retrieve user's current informatio
-        ParseUser currentUser = ParseUser.getCurrentUser();
+        final ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
             profileName.setText(currentUser.getUsername());
             profileEmail.setText(currentUser.getEmail());
@@ -55,7 +60,24 @@ public class SettingsFragment extends Fragment {
         setting_changes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Settings updated", Toast.LENGTH_SHORT).show();
+                currentUser.setEmail(profileEmail.getText().toString());
+                currentUser.setUsername(profileName.getText().toString());
+                currentUser.put("bio", profileBio.getText().toString());
+                currentUser.put("name", profileFullName.getText().toString());
+
+                currentUser.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e != null) {
+                            Log.e(TAG, "Error: saving user settings");
+                            Toast.makeText(getContext(),"Unable to save settings at this time", Toast.LENGTH_SHORT).show();
+                            e.printStackTrace();
+                            return;
+                        }
+                        Log.d(TAG, "Success: Saved user settings");
+                        Toast.makeText(getContext(), "Settings updated", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
