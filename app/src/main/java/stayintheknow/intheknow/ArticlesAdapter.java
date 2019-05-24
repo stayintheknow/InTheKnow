@@ -299,14 +299,27 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
             } else {
                 tvLikes.setText(article.getLikeCount() + " saves");
             }
-            /*SET LIKES*/
-            if(article.getLikeCount() == 1){
-                tvLikes.setText(article.getLikeCount() + " like");
-            } else {
-                tvLikes.setText(article.getLikeCount() + " likes");
-            }
-        }
 
+            /*Set saved icon*/
+            ParseQuery<Like> query = new ParseQuery<Like>(Like.class);
+            query.whereEqualTo("user", ParseUser.getCurrentUser());
+            query.whereEqualTo("article", article);
+            query.findInBackground(new FindCallback<Like>() {
+                @Override
+                public void done(List<Like> likes, ParseException e) {
+                    if(e != null) {
+                        Log.d(TAG, "Error: getting like object");
+                        e.printStackTrace();
+                        return;
+                    }
+                    Log.d(TAG, "Success: got like object");
+                    // Remove like
+
+                    if(likes.size() > 0) saveButton.setLiked(true);
+                    else saveButton.setLiked(false);
+                }
+            });
+        }
     }
 
 }
