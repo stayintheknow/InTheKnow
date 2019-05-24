@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,13 +9,54 @@
 
     <WebView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="500dp"
         android:id="@+id/webView"
+        android:nestedScrollingEnabled="true"
+        android:isScrollContainer="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentRight="true" />
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/webView"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="50dp"
+            android:layout_below="@id/webView">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvOne"
+                android:layout_margin="20dp"
+                android:background="@drawable/customborder"
+                android:text="This is where comments goes..."/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTwo"
+                android:layout_below="@+id/tvOne"
+                android:layout_margin="20dp"
+                android:background="@drawable/customborder"
+                android:text="Realistically this will be a recycler view instead of RelativeLayout"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvThree"
+                android:layout_below="@+id/tvTwo"
+                android:layout_margin="20dp"
+                android:background="@drawable/customborder"
+                android:text="And it will have comment_items"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+
