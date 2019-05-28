@@ -176,3 +176,6 @@ The following **required** functionality is completed:
 
 ## Walkthrough Four
 <img src="walkthrough4.gif"/>
+
+## Final Narrated Walkthrough Video
+<video src="InTheKnow_NarratedWalkthrough.mp4" width="320" height="200" controls preload></video>
